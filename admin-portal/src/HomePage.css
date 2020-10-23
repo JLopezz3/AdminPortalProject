@@ -1,0 +1,6 @@
+.home__wallpaper {
+  z-index: -1;
+  width: 100%;
+  margin-bottom: -200px;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
