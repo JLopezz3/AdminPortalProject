@@ -1,19 +1,41 @@
 import React from 'react'
 import './HomePage.css';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-function HomePage() {
+const useStyles = makeStyles((theme) => ({
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+}));
+
+export default function HomePage() {
+const classes = useStyles();
+
     return (
-        <div className="home">
-            <div className="home__container">
-                <img 
-                    className="home__wallpaper"
-                    src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
-                    alt="" 
-                    />
+        <React.Fragment>
+            <div className="home">
+                <div className="home__container">
+                    <img 
+                        className="home__wallpaper"
+                        src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
+                        alt="" 
+                        />
+                </div>
             </div>
-            
-        </div>
+            <footer className={classes.footer}>
+                <Typography variant="h6" align="center" gutterBottom>
+                Footer
+                </Typography>
+                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                Something here to give the footer a purpose!
+                </Typography>
+            </footer>
+        </React.Fragment>
+        
+        
     )
 }
 
-export default HomePage
+
