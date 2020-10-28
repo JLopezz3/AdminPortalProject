@@ -27,21 +27,20 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
   heroButtons: {
     marginTop: theme.spacing(4),
   },
   cardGrid: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+    width: '30vw',
   },
   card: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
+    width: '30vw',
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -78,20 +77,7 @@ export default function Sales() {
               Make it short and sweet, but not too short so folks don&apos;t simply skip over it
               entirely.
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
+            
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
@@ -106,8 +92,8 @@ export default function Sales() {
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Sales
+                    <Typography gutterBottom variant="h5"  component="h2">
+                      REPORTS
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe the content.
@@ -117,9 +103,57 @@ export default function Sales() {
                     <Button size="small" color="primary">
                       Reports
                     </Button>
+                  </CardActions>
+                </Card>
+                
+              </Grid>
+            ))}
+          </Grid>
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5"  component="h2">
+                      LEADS
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
                     <Button size="small" color="primary">
                       Leads
                     </Button>
+                  </CardActions>
+                </Card>
+                
+              </Grid>
+            ))}
+          </Grid>
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5"  component="h2">
+                      DEMO
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
                     <Button size="small" color="primary">
                       Demo
                     </Button>
@@ -145,3 +179,4 @@ export default function Sales() {
     </React.Fragment>
   );
 }
+
