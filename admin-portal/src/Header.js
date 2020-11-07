@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton, Button } from "@material-ui/core";
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import LaptopChromebookIcon from '@material-ui/icons/LaptopChromebook';
@@ -34,10 +33,6 @@ const useStyles = makeStyles((theme) => ({
     color: "lightgray",
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    color: "lightgray",
-  },
   links: {
       textDecoration: "none",
       color: "inherit",
@@ -51,9 +46,6 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar className={classes.appBar}position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title}variant="h6">
             <Link to="/HomePage" className={classes.links}>AdminPortal</Link>
           </Typography>
