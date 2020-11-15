@@ -31,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
   },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -55,7 +52,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [
+  {
+    img: "https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    header: "New Hire On-boarding",
+    info: "This is for new hire on-boarding pages"
+  },
+  {
+    img: "https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80",
+    header: "Benefits",
+    info: "This is for benefits pages"
+  },
+  {
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1772&q=80",
+    header: "Payroll",
+    info: "This is for payroll pages"
+  },
+  {
+    img: "https://images.unsplash.com/photo-1585695968280-f2d03c1cafb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    header: "Off-boarding",
+    info: "This is for off-boarding pages"
+  },
+  {
+    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    header: "HR Reports",
+    info: "This is for HR Reports pages"
+  },
+] ;
 
 export default function HR() {
   const classes = useStyles();
@@ -68,30 +91,16 @@ export default function HR() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              HR ADMIN
+              HR
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
               Make it short and sweet, but not too short so folks don&apos;t simply skip over it
               entirely.
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
@@ -99,23 +108,20 @@ export default function HR() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image={card.img}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    {card.header}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                    {card.info}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
                       View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
                     </Button>
                   </CardActions>
                 </Card>
@@ -130,7 +136,7 @@ export default function HR() {
           AdminPortal
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Made by Jerel Lopez, Seung Jung, & Abdul Aamir
+          Made by Jerel Lopez, Seung Jung & Abdul Aamir
         </Typography>
         <Copyright />
       </footer>
@@ -138,3 +144,4 @@ export default function HR() {
     </React.Fragment>
   );
 }
+
