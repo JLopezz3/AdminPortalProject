@@ -50,44 +50,25 @@ const classes = useStyles();
       <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Finance ADMIN
+              FINANCE
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Below are the links for finance
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
           </Container>
         </div>
       <VerticalTimeline layout={'1-column-left'}>
         <VerticalTimelineElement
           className={classes.IconStyle}
-          iconStyle={{ background: '#C8102E', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid #C8102E' }}
-          date='Aug 2019'
+          iconStyle={{ background: 'rgb(176 113 41)', color: '#fff' }}
+          contentArrowStyle={{ borderRight: '7px solid rgb(176 113 41)' }}
           icon={<AssignmentIcon />}
         >
 
           <h3 className={classes.verticalElementTitle}>Finance Reports</h3>
-          <h4 className={classes.verticalElementSubtitle}>HOFAFAFJA</h4>
-          <Chip label='KOBE' />
-          <Chip label='KOBE' />
+      
           <p>
-            HELLA YEA MUKACA
+            All the finance reports for the 2019-2020 fiscal year 
             </p>
             <div className={clsx(classes.column, classes.helper)}>
               <Typography variant="caption">
@@ -98,18 +79,15 @@ const classes = useStyles();
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className={classes.IconStyle}
-          iconStyle={{ background: '#C8102E', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid #C8102E' }}
-          date='Aug 2019'
+          iconStyle={{ background: 'rgb(176 113 41)', color: '#fff' }}
+          contentArrowStyle={{ borderRight: '7px solid rgb(176 113 41)' }}
+
           icon={<PaymentIcon/>}
         >
 
           <h3 className={classes.verticalElementTitle}>Accounts Payable</h3>
-          <h4 className={classes.verticalElementSubtitle}>HOFAFAFJA</h4>
-          <Chip label='KOBE' />
-          <Chip label='KOBE' />
           <p>
-            HELLA YEA MUKACA
+            All the Accounts Payable for the 2019-2020 fiscal year 
             </p>
             <div className={clsx(classes.column, classes.helper)}>
               <Typography variant="caption">
@@ -120,18 +98,14 @@ const classes = useStyles();
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className={classes.IconStyle}
-          iconStyle={{ background: '#C8102E', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid #C8102E' }}
-          date='Aug 2019'
+          iconStyle={{ background: 'rgb(176 113 41)', color: '#fff' }}
+          contentArrowStyle={{ borderRight: '7px solid rgb(176 113 41)' }}
           icon={<AccountBalanceIcon />}
         >
 
           <h3 className={classes.verticalElementTitle}>Accounts Receivable</h3>
-          <h4 className={classes.verticalElementSubtitle}>HOFAFAFJA</h4>
-          <Chip label='KOBE' />
-          <Chip label='KOBE' />
           <p>
-            HELLA YEA MUKACA
+            All the Accounts Receivable for the 2019-2020 fiscal year 
             </p>
             <div className={clsx(classes.column, classes.helper)}>
               <Typography variant="caption">
@@ -142,18 +116,14 @@ const classes = useStyles();
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className={classes.IconStyle}
-          iconStyle={{ background: '#C8102E', color: '#fff' }}
-          contentArrowStyle={{ borderRight: '7px solid #C8102E' }}
-          date='Aug 2019'
+          iconStyle={{ background: 'rgb(176 113 41)', color: '#fff' }}
+          contentArrowStyle={{ borderRight: '7px solid rgb(176 113 41)' }}
           icon={<PaymentIcon />}
         >
 
           <h3 className={classes.verticalElementTitle}>Tax</h3>
-          <h4 className={classes.verticalElementSubtitle}>HOFAFAFJA</h4>
-          <Chip label='KOBE' />
-          <Chip label='KOBE' />
           <p>
-            HELLA YEA MUKACA
+            All the tax reports for the 2019-2020 fiscal year 
             </p>
             <div className={clsx(classes.column, classes.helper)}>
               <Typography variant="caption">

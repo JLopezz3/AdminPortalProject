@@ -1,6 +1,14 @@
 .home__wallpaper {
   z-index: -1;
   width: 100%;
+  background-size: contain;
   margin-bottom: -200px;
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to bottom, transparent 0.1%, black 75%);
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+  color: rgb(176 113 41);
 }

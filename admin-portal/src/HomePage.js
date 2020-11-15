@@ -17,9 +17,12 @@ const classes = useStyles();
         <React.Fragment>
             <div className="home">
                 <div className="home__container">
+                    <Typography className="title" variant="h1" component="h2" gutterBottom>
+                        Welcome to AdminPortal!
+                    </Typography>
                     <img 
                         className="home__wallpaper"
-                        src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
+                        src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
                         alt="" 
                         />
                 </div>

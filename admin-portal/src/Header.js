@@ -17,17 +17,30 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.9",
     display: "flex",
   },
-  admin: {
+  finance: {
       objectFit: "contain",
       marginRight: theme.spacing(1),
+      color: 'rgb(211, 168, 38)',
   },
-  tech: {
-      objectFit: "contain",
+  hr: {
+    objectFit: "contain",
       marginRight: theme.spacing(1),
+      color: 'rgb(211, 168, 38)',
   },
   sales: {
       objectFit: "contain",
       marginRight: theme.spacing(1),
+      color: 'rgb(211, 168, 38)',
+  },
+  tech: {
+      objectFit: "contain",
+      marginRight: theme.spacing(1),
+      color: 'rgb(211, 168, 38)',
+  },
+  support: {
+      objectFit: "contain",
+      marginRight: theme.spacing(1),
+      color: 'rgb(211, 168, 38)',
   },
   title: {
     color: "lightgray",
@@ -54,7 +67,7 @@ export default function Header() {
                 <Button 
                     size="small"
                     color="inherit"
-                    className={classes.sales}
+                    className={classes.finance}
                 >
                     Finance
                 </Button>
@@ -64,7 +77,7 @@ export default function Header() {
                 <Button 
                     size="small"
                     color="inherit"
-                    className={classes.sales}
+                    className={classes.hr}
                 >
                     HR
                 </Button>
@@ -94,7 +107,7 @@ export default function Header() {
                 <Button 
                     size="small"
                     color="inherit"
-                    className={classes.admin}
+                    className={classes.support}
                 >
                     Support
                 </Button>
