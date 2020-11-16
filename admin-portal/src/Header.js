@@ -60,7 +60,7 @@ export default function Header() {
       <AppBar className={classes.appBar}position="static">
         <Toolbar variant="dense">
           <Typography className={classes.title}variant="h6">
-            <Link to="/HomePage" className={classes.links}>AdminPortal</Link>
+            <Link to="/" className={classes.links}>AdminPortal</Link>
           </Typography>
             <Link to="/finance" className={classes.links}>
                 <MonetizationOnIcon />

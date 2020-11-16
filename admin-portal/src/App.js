@@ -7,6 +7,7 @@ import HR from "./HR";
 import Sales from "./Sales";
 import Tech from "./Tech";
 import Support from "./Support";
+import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
           <Route path="/support">
             <Header />
             <Support />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Header />

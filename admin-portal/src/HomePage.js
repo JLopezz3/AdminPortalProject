@@ -1,8 +1,10 @@
 import React from 'react'
 import './HomePage.css';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 
 function Copyright() {
   return (
@@ -17,6 +19,20 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  login: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  loginButton: {
+    background: "#000000",
+    opacity: "0.9",
+    color: 'white',
+    "&:hover, &.Mui-focusVisible": {
+            transition: '0.3s',
+            color: '#FFFFFF',
+            backgroundColor: 'rgb(176 113 41)'
+        },
+  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
@@ -38,11 +54,19 @@ const classes = useStyles();
                     <Typography className="title" variant="h1" component="h2" gutterBottom>
                         Welcome to AdminPortal!
                     </Typography>
+                      <div className={classes.login}>
+                        <Link to="/login">
+                          <Button className={classes.loginButton} variant="contained" >
+                            Login
+                          </Button>
+                        </Link>
+                      </div>
                     <img 
                         className="home__wallpaper"
                         src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
                         alt="" 
                         /> 
+                        
                 </div>
                 {/* Footer */}
                 <footer className={classes.footer} >
