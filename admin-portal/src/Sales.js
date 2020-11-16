@@ -11,10 +11,11 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import PageScroll from "./PageScroll";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="#FFFFFF" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -67,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
+    background: "#000000", 
+    color: "#FFFFFF", 
+    opacity: "0.9",
   },
 }));
 
@@ -115,7 +119,7 @@ export default function Sales() {
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Sales Admin
+          SALES
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" component="p">
           SALES ADMIN DESCRIPTION BODY HERE
@@ -163,12 +167,13 @@ export default function Sales() {
           ))}
         </Grid>
       </Container>
+      <PageScroll showBelow={250} />
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           AdminPortal
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography variant="subtitle1" align="center" component="p">
           Made by Jerel Lopez, Seung Jung, & Abdul Aamir
         </Typography>
         <Copyright />

@@ -3,16 +3,26 @@ import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { makeStyles } from "@material-ui/core/styles";
-import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import Container from "@material-ui/core/Container";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
-import Grid from "@material-ui/core/Grid";
-import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import PageScroll from "./PageScroll";
 
+function Copyright() {
+  return (
+    <Typography variant="body2" color="#FFFFFF" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   verticalElementTitle: {
@@ -36,8 +46,31 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   heroContent: {
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
+    backgroundSize: "cover",
+  },
+  contentHeader: {
+    color: 'rgb(211, 168, 38)',
+    fontWeight: "bold",
+  },
+  content: {
+    color: 'rgb(211, 168, 38)',
+    fontWeight: "bold",
+  },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+    background: "#000000", 
+    color: "#FFFFFF", 
+    opacity: "0.9",
   },
 }));
 
@@ -46,13 +79,14 @@ function Finance() {
 const classes = useStyles();
 
   return (
+
     <div>
       <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            <Typography className={classes.contentHeader} component="h1" variant="h2" align="center" gutterBottom>
               FINANCE
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            <Typography className={classes.content}variant="h5" align="center" color="textSecondary" paragraph>
               Below are the links for finance
             </Typography>
           </Container>
@@ -134,7 +168,20 @@ const classes = useStyles();
         </VerticalTimelineElement>
         
       </VerticalTimeline>
+      <PageScroll showBelow={250} />
+      {/* Footer */}
+      <footer className={classes.footer} >
+        <Typography variant="h6" align="center" gutterBottom>
+          AdminPortal
+        </Typography>
+        <Typography variant="subtitle1" align="center" component="p">
+          Made by Jerel Lopez, Seung Jung & Abdul Aamir
+        </Typography>
+        <Copyright />
+      </footer>
+      {/* End footer */}
     </div>
+    
   )
 }
 

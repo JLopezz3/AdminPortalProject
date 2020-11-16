@@ -10,10 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import PageScroll from "./PageScroll";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="#FFFFFF" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
       </Link>{' '}
@@ -28,8 +29,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
     backgroundColor: theme.palette.background.paper,
+    backgroundSize: "cover",
     padding: theme.spacing(8, 0, 6),
+  },
+  contentHeader: {
+    color: "white",
+    fontWeight: "bold",
+  },
+  content: {
+    color: 'white',
+    fontWeight: "bold",
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -47,8 +58,17 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    borderTop: `1px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+    background: "#000000", 
+    color: "#FFFFFF", 
+    opacity: "0.9",
   },
 }));
 
@@ -90,10 +110,10 @@ export default function HR() {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              HR
+            <Typography className={classes.contentHeader} component="h1" variant="h2" align="center" gutterBottom>
+              HR ADMIN
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            <Typography className={classes.content} variant="h6" align="justify"  >
               Something short and leading about the collection below—its contents, the creator, etc.
               Make it short and sweet, but not too short so folks don&apos;t simply skip over it
               entirely.
@@ -129,13 +149,14 @@ export default function HR() {
             ))}
           </Grid>
         </Container>
+        <PageScroll showBelow={250} />
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           AdminPortal
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography variant="subtitle1" align="center" component="p">
           Made by Jerel Lopez, Seung Jung & Abdul Aamir
         </Typography>
         <Copyright />

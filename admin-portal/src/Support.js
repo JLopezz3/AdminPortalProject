@@ -9,10 +9,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import PageScroll from "./PageScroll";
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant="body2" color="#FFFFFF" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
             </Link>{' '}
@@ -62,6 +64,28 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     zIndex: 1,
     padding: theme.spacing(8, 0, 6),
+    backgroundSize: "cover",
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1603714228681-b399854b8f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1342&q=80')`,
+    },
+  contentHeader: {
+    color: "white",
+    fontWeight: "bold",
+  },
+  content: {
+    color: "white",
+  },
+    footer: {
+        borderTop: `1px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+    background: "#000000", 
+    color: "#FFFFFF", 
+    opacity: "0.9",
     },
 }));
 
@@ -71,16 +95,34 @@ export default function Support() {
   return (
     <div className={classes.root}>
       <div className={classes.myFinance}>
-              <Container maxWidth="sm">
-            <Typography component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
-                  SUPPORT
-                </Typography>
-                  <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                      Body section of Support page....
-                  </Typography>
-                    
-                  </Container>
-
+        <Container maxWidth="sm">
+          <Typography className={classes.contentHeader} component="h1" variant="h2" align="center" gutterBottom>
+              SUPPORT
+          </Typography>
+          <Typography className={classes.content} variant="h5" align="center"  paragraph>
+              For customer support admin pages
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+              It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+              It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
+              desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </Typography> 
+          <div className={classes.heroButtons}>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Main call to action
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Secondary action
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>     
+        </Container>
       </div>
       <Accordion defaultExpanded>
         <AccordionSummary
@@ -188,11 +230,12 @@ export default function Support() {
         </AccordionDetails>
 
       </Accordion>
+      <PageScroll showBelow={250} />
     <footer className={classes.footer}>
             <Typography variant="h6" align="center" gutterBottom>
             AdminPortal
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography variant="subtitle1" align="center" component="p">
           Made by Jerel Lopez, Seung Jung, & Abdul Aamir
         </Typography>
         <Copyright />
