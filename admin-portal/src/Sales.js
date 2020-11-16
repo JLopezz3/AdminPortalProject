@@ -5,7 +5,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
-import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
       listStyle: 'none',
     },
   },
+
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
@@ -45,8 +45,15 @@ const useStyles = makeStyles((theme) => ({
   link: {
     margin: theme.spacing(1, 1.5),
   },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6),
+  salesBG: {
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top 50px",
+    padding: theme.spacing(8, 0, 0),
+    backgroundSize: "cover",
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')`, 
+  },
+  saleBody: {
+    paddingTop: '25px',
   },
   cardHeader: {
     backgroundColor:
@@ -102,18 +109,19 @@ export default function Sales() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <div className={classes.salesBG}>
+      <React.Fragment>
       {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
+      <Container maxWidth="sm" component="main">
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
           SALES
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" component="p">
-          SALES ADMIN DESCRIPTION BODY HERE
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </Typography>
       </Container>
       {/* End hero unit */}
-      <Container Container maxWidth = "xl"
+      <Container className={classes.saleBody} Container maxWidth = "lg"
       component = "main" >
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
@@ -159,5 +167,6 @@ export default function Sales() {
       </footer>
       {/* End footer */}
     </React.Fragment>
+    </div>
   );
 }
