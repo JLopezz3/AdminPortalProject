@@ -1,4 +1,5 @@
 # AdminPortalProject
+
 ## AdminPortal App for COSC4351
 
 ### Installation
@@ -21,8 +22,7 @@
 3. `git commit -m {message}`
 4. `git push`
 
-
-### Pulling from master
+### Pulling from main branch
 
 1. `git checkout {branch-name}`
-2. `git pull origin master`
+2. `git pull origin main`
