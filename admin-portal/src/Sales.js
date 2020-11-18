@@ -25,11 +25,11 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
+  "@global": {
     ul: {
       margin: 0,
       padding: 0,
-      listStyle: 'none',
+      listStyle: "none",
     },
   },
 
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbar: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   toolbarTitle: {
     flexGrow: 1,
@@ -46,23 +46,27 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 1.5),
   },
   salesBG: {
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top 50px",
-    padding: theme.spacing(8, 0, 0),
+    backgroundImage: `url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')`,
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')`, 
+    backgroundPosition: '0px -150px',
+    backgroundRepeat: 'no-repeat',
+    width: '100wh',
   },
   saleBody: {
-    paddingTop: '25px',
+    paddingTop: "25px",
   },
   cardHeader: {
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
+      theme.palette.type === "light"
+        ? theme.palette.grey[200]
+        : theme.palette.grey[700],
   },
   cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "baseline",
     marginBottom: theme.spacing(2),
   },
   footer: {
@@ -70,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
@@ -169,4 +173,4 @@ export default function Sales() {
     </React.Fragment>
     </div>
   );
-}
+};  

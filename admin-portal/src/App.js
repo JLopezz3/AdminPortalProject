@@ -8,7 +8,7 @@ import Sales from "./Sales";
 import Tech from "./Tech";
 import Support from "./Support";
 import Login from "./Login";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -42,6 +42,8 @@ function App() {
             <Header />
             <HomePage />
           </Route>
+          <Redirect exact from="/tech" to="tech/ApplicationMonitoring" />
+          <Route exact path="/tech/:page?" render={props => <Tech {...props} />} />
         </Switch>
       </div>
     </Router>

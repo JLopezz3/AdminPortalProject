@@ -26,26 +26,26 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
   },
   heading: {
     fontSize: theme.typography.pxToRem(25),
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
   icon: {
-    verticalAlign: 'bottom',
+    verticalAlign: "bottom",
     height: 20,
     width: 20,
   },
   details: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   column: {
-    flexBasis: '33.33%',
+    flexBasis: "33.33%",
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
@@ -53,20 +53,20 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     color: theme.palette.primary.main,
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
     },
   },
   myFinance: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1,
+    backgroundImage: `url('https://images.unsplash.com/photo-1603714228681-b399854b8f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1342&q=')`,
+    backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1603714228681-b399854b8f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1342&q=80')`,
-    },
+    backgroundPosition: "0px -250px",
+    backgroundRepeat: "no-repeat",
+    width: "100wh",
+  },
   contentHeader: {
     color: "white",
     fontWeight: "bold",
@@ -74,19 +74,19 @@ const useStyles = makeStyles((theme) => ({
   content: {
     color: "white",
   },
-    footer: {
-        borderTop: `1px solid ${theme.palette.divider}`,
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
-    background: "#000000", 
-    color: "#FFFFFF", 
+    background: "#000000",
+    color: "#FFFFFF",
     opacity: "0.9",
-    },
+  },
 }));
 
 export default function Support() {
@@ -101,12 +101,7 @@ export default function Support() {
           </Typography>
           <Typography className={classes.content} variant="h5" align="center"  paragraph>
               For customer support admin pages
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-              It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-              It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-              desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              
           </Typography> 
           <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
