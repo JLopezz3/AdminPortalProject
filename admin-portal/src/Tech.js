@@ -1,187 +1,155 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import StarIcon from '@material-ui/icons/StarBorder';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import PageScroll from "./PageScroll";
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-function Copyright() {
   return (
-    <Typography variant="body2" color="#FFFFFF" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
   );
 }
 
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
+  root: {
     flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
   },
-  link: {
-    margin: theme.spacing(1, 1.5),
+  contentHeader: {
+    color: 'white',
+  },
+  content: {
+    color: 'white', 
+  },
+  tabNames: {
+    display: "flex",
+    justifyContent: "center",
   },
   heroContent: {
+    backgroundImage: `url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')`,
+    backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
-  },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
-  },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-    background: "#000000", 
-    color: "#FFFFFF", 
-    opacity: "0.9",
+    backgroundSize: "cover",
+    backgroundPosition: '0px -150px',
+    backgroundRepeat: 'no-repeat',
+    width: '100wh',
   },
 }));
 
-const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: ['10 users included', '2 GB of storage', 'Help center access', 'Email support'],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-];
-
-
 export default function Tech() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          TECH
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          Quickly build an effective pricing table for your potential customers with this layout.
-          It&apos;s built with default Material-UI components with little customization.
-        </Typography>
-      </Container>
-      {/* End hero unit */}
-      <Container maxWidth="md" component="main">
-        <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center' }}
-                  action={tier.title === 'Pro' ? <StarIcon /> : null}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                      /mo
-                    </Typography>
-                  </div>
-                  <ul>
-                    {tier.description.map((line) => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
-                        {line}
-                      </Typography>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-        
-      </Container>
-      <PageScroll showBelow={250} />
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          AdminPortal
-        </Typography>
-        <Typography variant="subtitle1" align="center" component="p">
-          Made by Jerel Lopez, Seung Jung, & Abdul Aamir
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
+    <div className={classes.root}>
+      <div className={classes.heroContent}>
+        <Container maxWidth="sm">
+          <Typography
+            className={classes.contentHeader}
+            component="h1"
+            variant="h2"
+            align="center"
+            gutterBottom
+          >
+            TECH
+          </Typography>
+          <Typography
+            className={classes.content}
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            Below are the links for Tech
+          </Typography>
+        </Container>
+      </div>
+      <AppBar style={{ background: "rgb(211, 168, 38)" }} position="static">
+        <Tabs
+          inkBarStyle={{background: 'black'}}
+          centered
+          value={value}
+          onChange={handleChange}
+          aria-label="simple tabs example"
+          variant="fullWidth"
+        >
+          <Tab
+            style={{ fontWeight: "bold", color: "black" }}
+            label="Application Monitoring"
+            {...a11yProps(0)}
+          />
+          <Tab
+            style={{ fontWeight: "bold", color: "black" }}
+            label="Tech Support"
+            {...a11yProps(1)}
+          />
+          <Tab
+            style={{ fontWeight: "bold", color: "black" }}
+            label="App Development"
+            {...a11yProps(2)}
+          />
+          <Tab
+            style={{ fontWeight: "bold", color: "black" }}
+            label="App Admin"
+            {...a11yProps(3)}
+          />
+          <Tab
+            style={{ fontWeight: "bold", color: "black" }}
+            label="Release Management"
+            {...a11yProps(4)}
+          />
+        </Tabs>
+      </AppBar>
+      <TabPanel className={classes.tabNames} value={value} index={0}>
+        Application Monitoring
+      </TabPanel>
+      <TabPanel className={classes.tabNames} value={value} index={1}>
+        Tech Support
+      </TabPanel>
+      <TabPanel className={classes.tabNames} value={value} index={2}>
+        App Development
+      </TabPanel>
+      <TabPanel className={classes.tabNames} value={value} index={3}>
+        App Admin
+      </TabPanel>
+      <TabPanel className={classes.tabNames} value={value} index={4}>
+        Management
+      </TabPanel>
+    </div>
   );
 }
