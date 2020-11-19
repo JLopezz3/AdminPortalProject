@@ -47,10 +47,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   contentHeader: {
-    color: 'white',
+    color: 'rgb(211, 168, 38)',
+    fontWeight: "bold",
   },
   content: {
-    color: 'white', 
+    color: 'rgb(211, 168, 38)',
   },
   tabNames: {
     display: "flex",
@@ -101,6 +102,7 @@ export default function Tech() {
       </div>
       <AppBar style={{ background: "rgb(211, 168, 38)" }} position="static">
         <Tabs
+          TabIndicatorProps={{style: {backgroundColor: "black"}}}
           inkBarStyle={{background: 'black'}}
           centered
           value={value}
@@ -110,6 +112,7 @@ export default function Tech() {
         >
           <Tab
             style={{ fontWeight: "bold", color: "black" }}
+            textColor="primary"
             label="Application Monitoring"
             {...a11yProps(0)}
           />

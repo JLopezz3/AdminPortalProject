@@ -36,15 +36,23 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 1.5),
   },
   salesBG: {
-    backgroundImage: `url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')`,
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80')`,
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
     backgroundPosition: '0px -450px',
     backgroundRepeat: 'no-repeat',
     width: '100wh',
-    
   },
+
+  saleHeader:{
+    color: 'rgb(211, 168, 38)',
+    fontWeight: "bold",
+  },
+  saleContent:{
+    color: 'rgb(211, 168, 38)',
+  },
+
   saleBody: {
     paddingTop: "25px",
   },
@@ -78,21 +86,21 @@ const tiers = [
   {
     title: 'Reports',
     subheader: 'Most popular',
-    description: ['Sales Reports', 'Email support'],
+    description: ['Sales Reports'],
     buttonText: 'Reports Link',
     buttonVariant: 'outlined',
   },
   {
     title: 'Leads',
     subheader: 'Most popular',
-    description: ['Sales Leads', 'Email support'],
+    description: ['Sales Leads'],
     buttonText: 'Leads Link',
     buttonVariant: 'contained',
   },
   {
     title: 'Demo',
     subheader: 'Most popular',
-    description: ['Sales Demo', 'Email support'],
+    description: ['Sales Demo'],
     buttonText: 'Demo Link',
     buttonVariant: 'outlined',
   },
@@ -107,13 +115,11 @@ export default function Sales() {
        <div className={classes.salesBG}>
         {/* Hero unit */}
       <Container maxWidth="sm" >
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+        <Typography className={classes.saleHeader} component="h1" variant="h2" align="center" gutterBottom>
           SALES
         </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
-          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
-          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
+        <Typography className={classes.saleContent} variant="h5" align="center" color="textSecondary" component="p">
+        The reports, leads and demo for sales are attached below
         </Typography>
       </Container>
       {/* End hero unit */}

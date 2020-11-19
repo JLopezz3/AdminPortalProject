@@ -29,18 +29,17 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')`,
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')`,
     backgroundColor: theme.palette.background.paper,
     backgroundSize: "cover",
     padding: theme.spacing(8, 0, 6),
   },
   contentHeader: {
-    color: "white",
+    color: 'rgb(211, 168, 38)',
     fontWeight: "bold",
   },
   content: {
-    color: 'white',
-    fontWeight: "bold",
+    color: 'rgb(211, 168, 38)',
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
@@ -114,9 +113,7 @@ export default function HR() {
               HR ADMIN
             </Typography>
             <Typography className={classes.content} variant="h6" align="justify"  >
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+            The annual HR reports on recruitment, interviewing, and workplace benefits can be viewed by admins only
             </Typography>
           </Container>
         </div>

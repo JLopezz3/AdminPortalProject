@@ -36,6 +36,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  buttonColor: {
+    background: "#000000",
+    opacity: "0.9",
+    color: 'white',
+    "&:hover, &.Mui-focusVisible": {
+            transition: '0.3s',
+            color: '#FFFFFF',
+            backgroundColor: 'rgb(176 113 41)'
+        },
+  },
+
   icon: {
     verticalAlign: "bottom",
     height: 20,
@@ -59,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   myFinance: {
-    backgroundImage: `url('https://images.unsplash.com/photo-1603714228681-b399854b8f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1342&q=')`,
+    backgroundImage: `url('https://img2.pngio.com/american-black-man-working-in-tech-support-working-indian-indian-technical-support-png-1920_1080.png')`,
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
@@ -68,11 +79,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100wh",
   },
   contentHeader: {
-    color: "white",
+    color: 'rgb(211, 168, 38)',
     fontWeight: "bold",
   },
   content: {
-    color: "white",
+    color: 'rgb(211, 168, 38)',
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -106,13 +117,8 @@ export default function Support() {
           <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button variant="contained">
+                    Contact Us
                   </Button>
                 </Grid>
               </Grid>
