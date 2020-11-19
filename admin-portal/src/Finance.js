@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     color: 'rgb(211, 168, 38)',
-    fontWeight: "bold",
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -87,7 +86,7 @@ const classes = useStyles();
               FINANCE
             </Typography>
             <Typography className={classes.content}variant="h5" align="center" color="textSecondary" paragraph>
-              Below are the links for finance
+            The finance reports can be accessed below
             </Typography>
           </Container>
         </div>
