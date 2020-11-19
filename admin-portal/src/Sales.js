@@ -32,16 +32,6 @@ const useStyles = makeStyles((theme) => ({
       listStyle: "none",
     },
   },
-
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: "wrap",
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
   link: {
     margin: theme.spacing(1, 1.5),
   },
@@ -50,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundPosition: '0px -150px',
+    backgroundPosition: '0px -450px',
     backgroundRepeat: 'no-repeat',
     width: '100wh',
+    
   },
   saleBody: {
     paddingTop: "25px",
@@ -62,12 +53,6 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === "light"
         ? theme.palette.grey[200]
         : theme.palette.grey[700],
-  },
-  cardPricing: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "baseline",
-    marginBottom: theme.spacing(2),
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -82,6 +67,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
     opacity: "0.9",
   },
+  phantom: {
+    display: 'block',
+    width: '100%',
+  },
+
 }));
 
 const tiers = [
@@ -113,19 +103,22 @@ export default function Sales() {
   const classes = useStyles();
 
   return (
-    <div className={classes.salesBG}>
-      <React.Fragment>
-      {/* Hero unit */}
-      <Container maxWidth="sm" component="main">
+     <div>
+       <div className={classes.salesBG}>
+        {/* Hero unit */}
+      <Container maxWidth="sm" >
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
           SALES
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" component="p">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
+          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
+          This is where Sales links is going to be JFODSJFODSFJSDOFSOFJSOFJSOFSOFJSOFJSOFJSOFJSOFJSOFJSOFJSFJSOFJSFJSOFJSOFO
         </Typography>
       </Container>
       {/* End hero unit */}
-      <Container className={classes.saleBody} Container maxWidth = "lg"
+      </div>
+      <Container className={classes.saleBody} Container maxWidth = "xl"
       component = "main" >
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
@@ -157,20 +150,24 @@ export default function Sales() {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Container> 
+
       <PageScroll showBelow={250} />
       {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          AdminPortal
-        </Typography>
-        <Typography variant="subtitle1" align="center" component="p">
-          Made by Jerel Lopez, Seung Jung, & Abdul Aamir
-        </Typography>
-        <Copyright />
-      </footer>
+      <div className={classes.phantom}>
+        <footer className={classes.footer}>
+          <Typography variant="h6" align="center" gutterBottom>
+            AdminPortal
+          </Typography>
+          <Typography variant="subtitle1" align="center" component="p">
+            Made by Jerel Lopez, Seung Jung, & Abdul Aamir
+          </Typography>
+          <Copyright />
+        </footer> 
+      </div>
+
+
       {/* End footer */}
-    </React.Fragment>
-    </div>
+     </div>
   );
 };  

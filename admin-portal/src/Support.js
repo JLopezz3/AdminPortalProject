@@ -226,7 +226,7 @@ export default function Support() {
 
       </Accordion>
       <PageScroll showBelow={250} />
-    <footer className={classes.footer}>
+      <footer className={classes.footer}>
             <Typography variant="h6" align="center" gutterBottom>
             AdminPortal
         </Typography>
