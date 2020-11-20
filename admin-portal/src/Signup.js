@@ -1,53 +1,69 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { auth, db } from "./firebaseSDK";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: "100vh",
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: "100%",
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
+    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundRepeat: "no-repeat",
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+      theme.palette.type === "light"
+        ? theme.palette.grey[50]
+        : theme.palette.grey[900],
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -56,7 +72,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignInSide() {
+  const history = useHistory();
   const classes = useStyles();
+  const [user, setUser] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const register = (e) => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        db.collection("users")
+          .add({ name, email, user, uid: auth.user.uid })
+          .then(() => {
+            localStorage.setItem("uid", auth.user.uid);
+            history.push("/");
+          })
+          .catch((error) => alert(error.message));
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -71,12 +109,44 @@ export default function SignInSide() {
             Sign Up
           </Typography>
           <form className={classes.form} noValidate>
+            <FormControl className={classes.formControl}>
+              <InputLabel id="demo-simple-select-label">Admin Type</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+              >
+                <MenuItem value="finance">Finance</MenuItem>
+                <MenuItem value="hr">HR</MenuItem>
+                <MenuItem value="sales">Sales</MenuItem>
+                <MenuItem value="tech">Tech</MenuItem>
+                <MenuItem value="support">Support</MenuItem>
+              </Select>
+            </FormControl>
+
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              label="username"
+              name="name"
+              autoComplete="name"
+              autoFocus
+            />
+
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               label="Email Address"
               name="email"
               autoComplete="email"
@@ -90,6 +160,8 @@ export default function SignInSide() {
               name="password"
               label="Password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               id="password"
               autoComplete="current-password"
             />
@@ -98,13 +170,14 @@ export default function SignInSide() {
               fullWidth
               variant="contained"
               color="primary"
+              onClick={register}
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   {"Already have an account? Login"}
                 </Link>
               </Grid>

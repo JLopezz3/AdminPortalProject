@@ -1,84 +1,68 @@
-import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { auth } from './firebaseSDK';
-
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { auth } from "./firebaseSDK";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     background: "rgb(176 113 41)",
     opacity: "0.9",
-    color: 'white',
+    color: "white",
     "&:hover, &.Mui-focusVisible": {
-            transition: '0.3s',
-            backgroundColor: '#000000',
-            opacity: "0.9",
-        },
-    
+      transition: "0.3s",
+      backgroundColor: "#000000",
+      opacity: "0.9",
+    },
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     background: "#000000",
     opacity: "0.9",
-    color: 'white',
+    color: "white",
     "&:hover, &.Mui-focusVisible": {
-            transition: '0.3s',
-            backgroundColor: 'rgb(176 113 41)'
-        },
+      transition: "0.3s",
+      backgroundColor: "rgb(176 113 41)",
+    },
   },
 }));
 
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const signIn = e => {
+  const signIn = (e) => {
     e.preventDefault();
 
     auth
-        .signInWithEmailAndPassword(email, password)
-        .then(auth => {
-          history.push('/')
-        })
-        .catch(error => alert(error.message))
-  }
-
-  const register = e => {
-    e.preventDefault();
-
-    auth
-      .createUserWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
-        if (auth) {
-          history.push('/')
-        }
+        localStorage.setItem("uid", auth.user.uid);
+        history.push("/");
       })
-      .catch(error => alert(error.message))
-  }
-
-
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -102,7 +86,7 @@ export default function Login() {
             autoComplete="email"
             autoFocus
             value={email}
-            onChange={e => setEmail(e.target.value)} 
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -115,9 +99,9 @@ export default function Login() {
             id="password"
             autoComplete="current-password"
             value={password}
-            onChange={e => setPassword(e.target.value)} 
+            onChange={(e) => setPassword(e.target.value)}
           />
-          
+
           <Button
             type="submit"
             fullWidth
@@ -127,22 +111,14 @@ export default function Login() {
           >
             Sign In
           </Button>
-          
+
           <Grid container>
-            
-            <Grid item>
-              {/* <Link to="/" onClick={register} variant="body2">
-                {"Click Here to Create Admin Profile"}
-              </Link> */}
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                className={classes.submit}
-                onClick={register}
-              >
-                Click Here to Create Admin Profile
-              </Button>
+            <Grid container>
+              <Grid item>
+                <Link href="/signup" variant="body2">
+                  {"Don't have an account? Signup"}
+                </Link>
+              </Grid>
             </Grid>
           </Grid>
         </form>
