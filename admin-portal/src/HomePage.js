@@ -60,6 +60,11 @@ const classes = useStyles();
                             Login
                           </Button>
                         </Link>
+                        <Link to="/signup">
+                          <Button className={classes.loginButton} variant="contained" >
+                            signup
+                          </Button>
+                        </Link>
                       </div>
                     <img 
                         className="home__wallpaper"

@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Link, useHistory } from "react-router-dom";
+import { auth } from './firebaseSDK';
+
 
 function Copyright() {
   return (
@@ -25,6 +25,8 @@ function Copyright() {
     </Typography>
   );
 }
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -63,8 +65,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Login() {
   const classes = useStyles();
+  const history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const signIn = e => {
+    e.preventDefault();
+
+    auth
+        .signInWithEmailAndPassword(email, password)
+        .then(auth => {
+          history.push('/')
+        })
+        .catch(error => alert(error.message))
+  }
+
+  const register = e => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+        if (auth) {
+          history.push('/')
+        }
+      })
+      .catch(error => alert(error.message))
+  }
+
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -74,7 +106,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Login
+          Admin Login
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -87,6 +119,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={e => setEmail(e.target.value)} 
           />
           <TextField
             variant="outlined"
@@ -98,28 +132,25 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={e => setPassword(e.target.value)} 
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          <Link to="/">
           <Button
             type="submit"
             fullWidth
             variant="contained"
             className={classes.submit}
+            onClick={signIn}
           >
             Sign In
           </Button>
+          </Link>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
+            
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link to="/" onClick={register} variant="body2">
+                {"Click Here to Create Admin Profile"}
               </Link>
             </Grid>
           </Grid>

@@ -8,9 +8,11 @@ import Sales from "./Sales";
 import Tech from "./Tech";
 import Support from "./Support";
 import Login from "./Login";
+import Signup from "./Signup";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
+
   return (
     <Router>
       <div className="app">
@@ -37,6 +39,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/">
             <Header />
