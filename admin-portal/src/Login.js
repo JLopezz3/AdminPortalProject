@@ -4,28 +4,12 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { auth } from './firebaseSDK';
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     "&:hover, &.Mui-focusVisible": {
             transition: '0.3s',
-            color: '#FFFFFF',
             backgroundColor: '#000000',
             opacity: "0.9",
         },
@@ -59,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     "&:hover, &.Mui-focusVisible": {
             transition: '0.3s',
-            color: '#FFFFFF',
             backgroundColor: 'rgb(176 113 41)'
         },
   },
@@ -135,7 +117,7 @@ export default function Login() {
             value={password}
             onChange={e => setPassword(e.target.value)} 
           />
-          <Link to="/">
+          
           <Button
             type="submit"
             fullWidth
@@ -145,20 +127,26 @@ export default function Login() {
           >
             Sign In
           </Button>
-          </Link>
+          
           <Grid container>
             
             <Grid item>
-              <Link to="/" onClick={register} variant="body2">
+              {/* <Link to="/" onClick={register} variant="body2">
                 {"Click Here to Create Admin Profile"}
-              </Link>
+              </Link> */}
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                className={classes.submit}
+                onClick={register}
+              >
+                Click Here to Create Admin Profile
+              </Button>
             </Grid>
           </Grid>
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }

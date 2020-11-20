@@ -11,8 +11,9 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
 
+function App() {
+  
   return (
     <Router>
       <div className="app">
