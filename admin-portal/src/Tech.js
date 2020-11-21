@@ -154,6 +154,10 @@ const useStyles = makeStyles((theme) => ({
   cover: {
     width: 151,
   },
+  dev: {
+    display:"flex",
+    justifyContent:"center",
+  },
 }));
 
 export default function Tech() {
@@ -281,10 +285,30 @@ export default function Tech() {
       {/* END of TechSupport */}
 
       <TabPanel className={classes.tabNames} value={value} index={2}>
-        App Development
+        <div>
+          <Typography className={classes.dev} variant="h3">
+            App Development
+          </Typography>
+        </div>
+        <div>
+          <Typography className={classes.dev} variant="h5">
+            Our development team is committed to providing the best user experience
+          </Typography>
+        </div>
+        <img src={process.env.PUBLIC_URL + '/AppDev.png'} />
       </TabPanel>
       <TabPanel className={classes.tabNames} value={value} index={3}>
-        App Admin
+      <div>
+          <Typography className={classes.dev} variant="h3">
+            App Admin
+          </Typography>
+        </div>
+        <div>
+          <Typography className={classes.dev} variant="h5">
+            App admin manages all site traffic
+          </Typography>
+        </div>
+        <img src={process.env.PUBLIC_URL + '/admin.png'} />
       </TabPanel>
       <TabPanel className={classes.tabNames} value={value} index={4}>
         <div>
