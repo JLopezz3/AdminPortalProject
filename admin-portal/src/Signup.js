@@ -14,7 +14,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { auth, db } from "./firebaseSDK";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
@@ -34,6 +33,20 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black",
+      },
+      "&:hover fieldset": {
+        borderColor: "black",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
   },
   formControl: {
     margin: theme.spacing(1),
@@ -43,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://source.unsplash.com/daily?business)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -60,7 +73,14 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    background: "rgb(176 113 41)",
+    opacity: "0.9",
+    color: "white",
+    "&:hover, &.Mui-focusVisible": {
+      transition: "0.3s",
+      backgroundColor: "#000000",
+      opacity: "0.9",
+    },
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -68,6 +88,13 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background: "#000000",
+    opacity: "0.9",
+    color: "white",
+    "&:hover, &.Mui-focusVisible": {
+      transition: "0.3s",
+      backgroundColor: "rgb(176 113 41)",
+    },
   },
 }));
 
@@ -116,6 +143,7 @@ export default function SignInSide() {
                 id="demo-simple-select"
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
+                
               >
                 <MenuItem value="finance">Finance</MenuItem>
                 <MenuItem value="hr">HR</MenuItem>
@@ -137,6 +165,7 @@ export default function SignInSide() {
               name="name"
               autoComplete="name"
               autoFocus
+              color="black"
             />
 
             <TextField
