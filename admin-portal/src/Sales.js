@@ -156,7 +156,7 @@ export default function Sales() {
             </Grid>
           ))}
         </Grid>
-      </Container> 
+      </Container>
 
       <PageScroll showBelow={250} />
       {/* Footer */}
@@ -169,11 +169,11 @@ export default function Sales() {
             Made by Jerel Lopez, Seung Jung, & Abdul Aamir
           </Typography>
           <Copyright />
-        </footer> 
+        </footer>
       </div>
 
 
       {/* End footer */}
      </div>
   );
-};  
+};
