@@ -125,13 +125,12 @@ export default function Header() {
             </Link>
           )}
           {position === "support" && (
-
-          <Link to="/support" className={classes.links}>
-            <LiveHelpIcon />
-            <Button size="small" color="inherit" className={classes.support}>
-              Support
-            </Button>
-          </Link>
+            <Link to="/support" className={classes.links}>
+              <LiveHelpIcon />
+              <Button size="small" color="inherit" className={classes.support}>
+                Support
+              </Button>
+            </Link>
           )}
         </Toolbar>
       </AppBar>

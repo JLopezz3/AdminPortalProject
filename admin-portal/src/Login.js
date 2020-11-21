@@ -101,7 +101,6 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
           <Button
             type="submit"
             fullWidth
@@ -111,7 +110,6 @@ export default function Login() {
           >
             Sign In
           </Button>
-
           <Grid container>
             <Grid container>
               <Grid item>
