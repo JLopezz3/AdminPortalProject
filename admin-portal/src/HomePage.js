@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { db } from "./firebaseSDK";
+import Videoone from "./video/videoone.mp4.mp4";
+import Videotwo from "./video/videotwo.mp4";
+
 
 function Copyright() {
   return (
@@ -33,14 +36,20 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "rgb(176 113 41)",
     },
   },
+  videoTwo: {
+    position: "bottom",
+    width: "100%",
+    margin: "0px auto",
+    overflow: "hidden",
+  },
   footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
     background: "#000000",
     color: "#FFFFFF",
     opacity: "0.9",
+    margin: "0px",
+    display: "block",
   },
 }));
 
@@ -117,9 +126,23 @@ export default function HomePage() {
             src="https://source.unsplash.com/user/jlopezz3/likes/1600x900"
             alt=""
           />
-        </div>
-        {/* Footer */}
-        <footer className={classes.footer}>
+          {/* <video
+            className={classes.videoTwo}
+            autoPlay
+            loop
+            muted
+          >
+            <source src={Videoone} type="video/mp4"/>
+          </video> */}
+          <video
+            className={classes.videoTwo}
+            autoPlay
+            loop
+            muted
+          >
+            <source src={Videotwo} type="video/mp4"/>
+          </video>
+          <footer className={classes.footer}>
           <Typography variant="h6" align="center" gutterBottom>
             AdminPortal
           </Typography>
@@ -128,6 +151,9 @@ export default function HomePage() {
           </Typography>
           <Copyright />
         </footer>
+        </div>
+        {/* Footer */}
+        
         {/* End footer */}
       </div>
     </React.Fragment>
