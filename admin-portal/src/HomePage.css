@@ -10,5 +10,6 @@
   display: flex;
   justify-content: center;
   padding-top: 150px;
-  color: rgb(176 113 41);
+  color: #ffbc00;
+  font-weight: bold;
 }
