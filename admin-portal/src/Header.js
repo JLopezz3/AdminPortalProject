@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.9",
     display: "flex",
   },
+  greeting: {
+    display: "flex",
+    justifyContent: "center",
+    margin: "0",
+  },
   finance: {
     objectFit: "contain",
     marginRight: theme.spacing(1),
@@ -52,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "inherit",
   },
+  icons: {
+    paddingBottom: "5px",
+  }
 }));
 
 export default function Header() {
@@ -92,42 +100,45 @@ export default function Header() {
               AdminPortal
             </Link>
           </Typography>
+          <Typography className={classes.greeting}>
+            You are logged in as: 
+          </Typography>
           {position === "finance" && (
             <Link to="/finance" className={classes.links}>
-              <MonetizationOnIcon />
               <Button size="small" color="inherit" className={classes.finance}>
+              <MonetizationOnIcon className={classes.icons} />
                 Finance
               </Button>
             </Link>
           )}
           {position === "hr" && (
             <Link to="/hr" className={classes.links}>
-              <SupervisorAccountIcon />
               <Button size="small" color="inherit" className={classes.hr}>
+              <SupervisorAccountIcon className={classes.icons} />
                 HR
               </Button>
             </Link>
           )}
           {position === "sales" && (
             <Link to="/sales" className={classes.links}>
-              <ReceiptIcon />
               <Button size="small" color="inherit" className={classes.sales}>
+              <ReceiptIcon className={classes.icons}/>
                 Sales
               </Button>
             </Link>
           )}
           {position === "tech" && (
             <Link to="/tech" className={classes.links}>
-              <LaptopChromebookIcon />
               <Button size="small" color="inherit" className={classes.tech}>
+              <LaptopChromebookIcon className={classes.icons}/>
                 Tech
               </Button>
             </Link>
           )}
           {position === "support" && (
             <Link to="/support" className={classes.links}>
-              <LiveHelpIcon />
               <Button size="small" color="inherit" className={classes.support}>
+              <LiveHelpIcon className={classes.icons}/>
                 Support
               </Button>
             </Link>

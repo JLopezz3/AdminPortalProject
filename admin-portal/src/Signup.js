@@ -22,7 +22,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        AdminPortal
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -212,7 +212,12 @@ export default function SignInSide() {
               </Grid>
             </Grid>
             <Box mt={5}>
+            <footer className={classes.footer} >
+              <Typography variant="subtitle1" align="center" component="p">
+                Made by Jerel Lopez, Seung Jung & Abdul Aamir
+              </Typography>
               <Copyright />
+            </footer>
             </Box>
           </form>
         </div>

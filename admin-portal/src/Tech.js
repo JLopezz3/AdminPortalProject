@@ -157,6 +157,12 @@ const useStyles = makeStyles((theme) => ({
   dev: {
     display:"flex",
     justifyContent:"center",
+    paddingBottom: "20px",
+  },
+  appDevPic: {
+    height: "400px",
+    width: "570px",
+    margin: "0 130px",
   },
 }));
 
@@ -286,7 +292,7 @@ export default function Tech() {
 
       <TabPanel className={classes.tabNames} value={value} index={2}>
         <div>
-          <Typography className={classes.dev} variant="h3">
+          <Typography className={classes.dev} variant="h4">
             App Development
           </Typography>
         </div>
@@ -295,11 +301,11 @@ export default function Tech() {
             Our development team is committed to providing the best user experience
           </Typography>
         </div>
-        <img src={process.env.PUBLIC_URL + '/AppDev.png'} />
+        <img className={classes.appDevPic}src={process.env.PUBLIC_URL + '/AppDev.png'} />
       </TabPanel>
       <TabPanel className={classes.tabNames} value={value} index={3}>
       <div>
-          <Typography className={classes.dev} variant="h3">
+          <Typography className={classes.dev} variant="h4">
             App Admin
           </Typography>
         </div>
@@ -308,7 +314,7 @@ export default function Tech() {
             App admin manages all site traffic
           </Typography>
         </div>
-        <img src={process.env.PUBLIC_URL + '/admin.png'} />
+        <img className={classes.appDevPic} src={process.env.PUBLIC_URL + '/admin.png'} />
       </TabPanel>
       <TabPanel className={classes.tabNames} value={value} index={4}>
         <div>

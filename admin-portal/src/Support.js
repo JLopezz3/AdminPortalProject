@@ -140,7 +140,7 @@ export default function Support() {
         <AccordionSummary>
           <div>
             <Typography>
-              View a list of all finance reports from the 2020 fiscal year. 
+              To manage user accounts please click the following link
             </Typography>
           </div>
         </AccordionSummary>
@@ -153,7 +153,7 @@ export default function Support() {
               Visit website:
               <br />
               <a href="#secondary-heading-and-columns" className={classes.link}>
-                https:www.myprojectlink.com
+                https:www.myaccounts.com
               </a>
             </Typography>
           </div>
@@ -174,7 +174,7 @@ export default function Support() {
         <AccordionSummary>
           <div>
             <Typography>
-                View Accounts Payable to see all short-term debts and obligations.
+                To assign roles please click the following link
             </Typography>
           </div>
         </AccordionSummary>
@@ -188,7 +188,7 @@ export default function Support() {
               Visit website:
               <br />
               <a href="#secondary-heading-and-columns" className={classes.link}>
-                https:www.myprojectlink2.com
+                https:www.myroles.com
               </a>
             </Typography>
           </div>
@@ -210,7 +210,7 @@ export default function Support() {
         <AccordionSummary>
           <div>
             <Typography>
-               View Accounts Receivable from the 2020 fiscal year. 
+               To reach the Help Desk, please click the following link
             </Typography>
           </div>
         </AccordionSummary>
@@ -224,7 +224,7 @@ export default function Support() {
               Visit website:
               <br />
               <a href="#secondary-heading-and-columns" className={classes.link}>
-                https:www.myprojectlink3.com
+                https:www.myhelpdesk.com
               </a>
             </Typography>
           </div>

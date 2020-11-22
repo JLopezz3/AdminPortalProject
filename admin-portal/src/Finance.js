@@ -107,6 +107,9 @@ const classes = useStyles();
               <Typography variant="caption">
                 View source link
                 <br />
+                <a href="#secondary-heading-and-columns" className={classes.link}>
+                https:www.myfinancereports.com
+              </a>
               </Typography>
             </div>
         </VerticalTimelineElement>
@@ -126,6 +129,9 @@ const classes = useStyles();
               <Typography variant="caption">
                 View source link
                 <br />
+                <a href="#secondary-heading-and-columns" className={classes.link}>
+                https:www.myaccountspayable.com
+              </a>
               </Typography>
             </div>
         </VerticalTimelineElement>
@@ -144,6 +150,9 @@ const classes = useStyles();
               <Typography variant="caption">
                 View source link
                 <br />
+                <a href="#secondary-heading-and-columns" className={classes.link}>
+                https:www.myaccountsreceivable.com
+              </a>
               </Typography>
             </div>
         </VerticalTimelineElement>
@@ -155,13 +164,17 @@ const classes = useStyles();
         >
 
           <h3 className={classes.verticalElementTitle}>Tax</h3>
-          <p>
+            <p>
             All the tax reports for the 2019-2020 fiscal year 
             </p>
+            
             <div className={clsx(classes.column, classes.helper)}>
               <Typography variant="caption">
                 View source link
                 <br />
+                <a href="#secondary-heading-and-columns" className={classes.link}>
+                https:www.mytaxreports.com
+              </a>
               </Typography>
             </div>
         </VerticalTimelineElement>
