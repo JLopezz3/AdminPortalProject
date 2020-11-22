@@ -37,12 +37,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   videoTwo: {
-    position: "bottom",
+    position: "absolute",
+    top: "0",
+    right: "0",
+    bottom: "0",
+    left: "0",
+    margin: "0",
+    padding: "0",
     width: "100%",
-    margin: "0px auto",
-    overflow: "hidden",
+    zIndex: "-1"
   },
   footer: {
+    position: "sticky",
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
     background: "#000000",
@@ -50,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.9",
     margin: "0px",
     display: "block",
+    
   },
 }));
 
@@ -85,6 +92,8 @@ export default function HomePage() {
     localStorage.removeItem("uid");
     history.replace("/login");
   };
+
+
   return (
     <React.Fragment>
       <div className="home">
@@ -121,19 +130,11 @@ export default function HomePage() {
               </Link>
             </div>
           )}
-          <img
+          {/* <img
             className="home__wallpaper"
             src="https://source.unsplash.com/user/jlopezz3/likes/1600x900"
             alt=""
-          />
-          {/* <video
-            className={classes.videoTwo}
-            autoPlay
-            loop
-            muted
-          >
-            <source src={Videoone} type="video/mp4"/>
-          </video> */}
+          /> */}
           <video
             className={classes.videoTwo}
             autoPlay
@@ -142,19 +143,7 @@ export default function HomePage() {
           >
             <source src={Videotwo} type="video/mp4"/>
           </video>
-          <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-            AdminPortal
-          </Typography>
-          <Typography variant="subtitle1" align="center" component="p">
-            Made by Jerel Lopez, Seung Jung & Abdul Aamir
-          </Typography>
-          <Copyright />
-        </footer>
         </div>
-        {/* Footer */}
-        
-        {/* End footer */}
       </div>
     </React.Fragment>
   );
