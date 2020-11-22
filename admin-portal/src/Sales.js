@@ -29,19 +29,14 @@ const pageVariants = {
   initial: {
     opacity: 0,
     width: "100%",
-    scale: 0.8
   },
   in: {
     opacity: 1,
     width: "100%",
-    scale: 1
-    
   },
   out: {
     opacity: 1,
     width: "100%",
-    scale: 1.2
-    
   }
 };
 
