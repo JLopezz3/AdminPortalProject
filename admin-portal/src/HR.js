@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import PageScroll from "./PageScroll";
+import { motion } from 'framer-motion';
 
 function Copyright() {
   return (
@@ -23,6 +24,36 @@ function Copyright() {
     </Typography>
   );
 }
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    width: "100%",
+    scale: 0.8
+  },
+  in: {
+    opacity: 1,
+    width: "100%",
+    scale: 1
+    
+  },
+  out: {
+    opacity: 1,
+    width: "100%",
+    scale: 1.2
+    
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1.2
+};
+
+const pageStyle = {
+  position: "absolute"
+};
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -103,6 +134,14 @@ export default function HR() {
   const classes = useStyles();
 
   return (
+    <motion.div
+      style={pageStyle}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      >
     <React.Fragment>
       <CssBaseline />
       <main>
@@ -160,6 +199,7 @@ export default function HR() {
       </footer>
       {/* End footer */}
     </React.Fragment>
+    </motion.div>
   );
 }
 

@@ -11,6 +11,7 @@ import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 import PaymentIcon from "@material-ui/icons/Payment";
 import Link from '@material-ui/core/Link';
 import PageScroll from "./PageScroll";
+import { motion } from 'framer-motion';
 
 function Copyright() {
   return (
@@ -23,6 +24,33 @@ function Copyright() {
     </Typography>
   );
 }
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    width: "100%",
+  },
+  in: {
+    opacity: 1,
+    width: "100%",
+    
+  },
+  out: {
+    opacity: 1,
+    width: "100%",
+    
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1.2
+};
+
+const pageStyle = {
+  position: "absolute"
+};
 
 const useStyles = makeStyles((theme) => ({
   verticalElementTitle: {
@@ -78,7 +106,14 @@ function Finance() {
 const classes = useStyles();
 
   return (
-
+    <motion.div
+      style={pageStyle}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      >
     <div>
       <div className={classes.heroContent}>
           <Container maxWidth="sm">
@@ -193,6 +228,7 @@ const classes = useStyles();
       </footer>
       {/* End footer */}
     </div>
+    </motion.div>
     
   )
 }

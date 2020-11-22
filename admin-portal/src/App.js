@@ -8,14 +8,18 @@ import Tech from "./Tech";
 import Support from "./Support";
 import Login from "./Login";
 import Signup from "./Signup";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+
 
 
 function App() {
+
   
   return (
     <Router>
       <div className="app">
+        <AnimatePresence>
         <Switch>
           <Route path="/finance">
             <Header />
@@ -50,6 +54,7 @@ function App() {
           <Redirect exact from="/tech" to="tech/ApplicationMonitoring" />
           <Route exact path="/tech/:page?" render={props => <Tech {...props} />} />
         </Switch>
+        </AnimatePresence>
       </div>
     </Router>
   );

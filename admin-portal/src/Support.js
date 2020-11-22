@@ -11,6 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import PageScroll from "./PageScroll";
+import { motion } from 'framer-motion';
 
 function Copyright() {
     return (
@@ -23,6 +24,36 @@ function Copyright() {
         </Typography>
     );
 }
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    width: "100%",
+    scale: 0.8
+  },
+  in: {
+    opacity: 1,
+    width: "100%",
+    scale: 1
+    
+  },
+  out: {
+    opacity: 1,
+    width: "100%",
+    scale: 1.2
+    
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1.2
+};
+
+const pageStyle = {
+  position: "absolute"
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -104,7 +135,16 @@ export default function Support() {
   const classes = useStyles();
 
   return (
+    
     <div className={classes.root}>
+      <motion.div
+      style={pageStyle}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      >
       <div className={classes.myFinance}>
         <Container maxWidth="sm">
           <Typography className={classes.contentHeader} component="h1" variant="h2" align="center" gutterBottom>
@@ -241,6 +281,8 @@ export default function Support() {
         </Typography>
         <Copyright />
       </footer>
+      </motion.div>
     </div>
+    
   );
 }

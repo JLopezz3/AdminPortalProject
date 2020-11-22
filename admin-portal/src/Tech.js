@@ -19,6 +19,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 import { DataGrid } from "@material-ui/data-grid";
+import { motion } from 'framer-motion';
 
 
 function Copyright() {
@@ -31,6 +32,35 @@ function Copyright() {
     </Typography>
   );
 }
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    width: "100%",
+    scale: 0.8
+  },
+  in: {
+    opacity: 1,
+    width: "100%",
+    scale: 1
+  },
+  out: {
+    opacity: 1,
+    width: "100%",
+    scale: 1.2
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1.2
+};
+
+const pageStyle = {
+  position: "absolute"
+};
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -176,6 +206,14 @@ export default function Tech() {
   };
 
   return (
+    <motion.div
+      style={pageStyle}
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      >
     <div className={classes.root}>
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
@@ -334,5 +372,6 @@ export default function Tech() {
         <Copyright />
       </footer>
     </div>
+    </motion.div>
   );
 }
