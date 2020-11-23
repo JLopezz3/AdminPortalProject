@@ -6,20 +6,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { db } from "./firebaseSDK";
-import Videoone from "./video/videoone.mp4.mp4";
 import Videotwo from "./video/videotwo.mp4";
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="#FFFFFF" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/"></Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   login: {
@@ -45,18 +32,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0",
     padding: "0",
     width: "100%",
-    zIndex: "-1"
-  },
-  footer: {
-    position: "sticky",
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    background: "#000000",
-    color: "#FFFFFF",
-    opacity: "0.9",
-    margin: "0px",
-    display: "block",
-    
+    zIndex: "-1",
   },
 }));
 
@@ -65,10 +41,12 @@ export default function HomePage() {
   const classes = useStyles();
   const [user, setUser] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [position, setPosition] = useState("");
 
-  useEffect(async () => {
+  useEffect(() => {
+    getUid();
+  });
+
+  const getUid = async () => {
     let uid = await localStorage.getItem("uid");
     if (uid !== null) {
       setUser(true);
@@ -76,23 +54,21 @@ export default function HomePage() {
         .where("uid", "==", uid)
         .get()
         .then((doc) => {
-        doc.forEach(item => {
-          console.log(item.id);
-          setName(item.data().name)
-          setEmail(item.data().email)
-          setPosition(item.data().user)
-        })
+          doc.forEach((item) => {
+            console.log(item.id);
+            setName(item.data().name);
+          });
         })
         .catch((e) => alert(e));
     } else {
       history.replace("/login");
     }
-  });
+  };
+
   const logout = () => {
     localStorage.removeItem("uid");
     history.replace("/login");
   };
-
 
   return (
     <React.Fragment>
@@ -135,13 +111,8 @@ export default function HomePage() {
             src="https://source.unsplash.com/user/jlopezz3/likes/1600x900"
             alt=""
           /> */}
-          <video
-            className={classes.videoTwo}
-            autoPlay
-            loop
-            muted
-          >
-            <source src={Videotwo} type="video/mp4"/>
+          <video className={classes.videoTwo} autoPlay loop muted>
+            <source src={Videotwo} type="video/mp4" />
           </video>
         </div>
       </div>

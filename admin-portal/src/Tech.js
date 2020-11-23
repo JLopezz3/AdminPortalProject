@@ -19,8 +19,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 import { DataGrid } from "@material-ui/data-grid";
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 function Copyright() {
   return (
@@ -37,28 +36,28 @@ const pageVariants = {
   initial: {
     opacity: 0,
     width: "100%",
-    scale: 0.8
+    scale: 0.8,
   },
   in: {
     opacity: 1,
     width: "100%",
-    scale: 1
+    scale: 1,
   },
   out: {
     opacity: 1,
     width: "100%",
-    scale: 1.2
-  }
+    scale: 1.2,
+  },
 };
 
 const pageTransition = {
   type: "tween",
   ease: "anticipate",
-  duration: 1.2
+  duration: 1.2,
 };
 
 const pageStyle = {
-  position: "absolute"
+  position: "absolute",
 };
 
 function TabPanel(props) {
@@ -122,18 +121,89 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, techid: 23, lastName: "James", firstName: "LeBron", age: 35, contactLinks: "www.nbaGOAT.com", applicationStatus: "Complete" },
-  { id: 2, techid: 42, lastName: "Gates", firstName: "Bill", age: 42, contactLinks: "www.microsoft.com", applicationStatus: "Complete"},
-  { id: 3, techid: 89, lastName: "Bezos", firstName: "Jeff", age: 45, contactLinks: "www.amazon.com", applicationStatus: "Complete"},
-  { id: 4, techid: 100, lastName: "Jobs", firstName: "Steve", age: 16, contactLinks: "www.apple.com", applicationStatus: "Complete"},
-  { id: 5, techid: 65, lastName: "Musk", firstName: "Elon", age: 45, contactLinks: "www.tesla.com", applicationStatus: "Complete"},
-  { id: 6, techid: 40, lastName: "Singh", firstName: "Raj", age: 150, contactLinks: "http://www2.cs.uh.edu/~rsingh/", applicationStatus: "Complete"},
-  { id: 7, techid: 15, lastName: "Lopez", firstName: "Jerel", age: 23, contactLinks: "www.jerellopez.com", applicationStatus: "Complete"},
-  { id: 8, techid: 12, lastName: "Jung", firstName: "Seung", age: 27, contactLinks: "www.seungjung.com", applicationStatus: "Complete"},
-  { id: 9, techid: 69, lastName: "Aamir", firstName: "Abdul", age: 21, contactLinks: "abdulaamir.com", applicationStatus: "Complete"},
+  {
+    id: 1,
+    techid: 23,
+    lastName: "James",
+    firstName: "LeBron",
+    age: 35,
+    contactLinks: "www.nbaGOAT.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 2,
+    techid: 42,
+    lastName: "Gates",
+    firstName: "Bill",
+    age: 42,
+    contactLinks: "www.microsoft.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 3,
+    techid: 89,
+    lastName: "Bezos",
+    firstName: "Jeff",
+    age: 45,
+    contactLinks: "www.amazon.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 4,
+    techid: 100,
+    lastName: "Jobs",
+    firstName: "Steve",
+    age: 16,
+    contactLinks: "www.apple.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 5,
+    techid: 65,
+    lastName: "Musk",
+    firstName: "Elon",
+    age: 45,
+    contactLinks: "www.tesla.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 6,
+    techid: 40,
+    lastName: "Singh",
+    firstName: "Raj",
+    age: 150,
+    contactLinks: "http://www2.cs.uh.edu/~rsingh/",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 7,
+    techid: 15,
+    lastName: "Lopez",
+    firstName: "Jerel",
+    age: 23,
+    contactLinks: "www.jerellopez.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 8,
+    techid: 12,
+    lastName: "Jung",
+    firstName: "Seung",
+    age: 27,
+    contactLinks: "www.seungjung.com",
+    applicationStatus: "Complete",
+  },
+  {
+    id: 9,
+    techid: 69,
+    lastName: "Aamir",
+    firstName: "Abdul",
+    age: 21,
+    contactLinks: "abdulaamir.com",
+    applicationStatus: "Complete",
+  },
 ];
 //End of Application Monitoring
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -185,8 +255,8 @@ const useStyles = makeStyles((theme) => ({
     width: 151,
   },
   dev: {
-    display:"flex",
-    justifyContent:"center",
+    display: "flex",
+    justifyContent: "center",
     paddingBottom: "20px",
   },
   appDevPic: {
@@ -213,165 +283,172 @@ export default function Tech() {
       exit="out"
       variants={pageVariants}
       transition={pageTransition}
-      >
-    <div className={classes.root}>
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            className={classes.contentHeader}
-            component="h1"
-            variant="h2"
-            align="center"
-            gutterBottom
-          >
-            TECH
-          </Typography>
-          <Typography
-            className={classes.content}
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph
-          >
-            Below are the links for Tech
-          </Typography>
-        </Container>
-      </div>
-      <AppBar style={{ background: "rgb(211, 168, 38)" }} position="static">
-        <Tabs
-          TabIndicatorProps={{ style: { backgroundColor: "black" } }}
-          centered
-          value={value}
-          onChange={handleChange}
-          aria-label="simple tabs example"
-          variant="fullWidth"
-        >
-          <Tab
-            style={{ fontWeight: "bold", color: "black" }}
-            textColor="primary"
-            label="Application Monitoring"
-            {...a11yProps(0)}
-          />
-          <Tab
-            style={{ fontWeight: "bold", color: "black" }}
-            label="Tech Support"
-            {...a11yProps(1)}
-          />
-          <Tab
-            style={{ fontWeight: "bold", color: "black" }}
-            label="App Development"
-            {...a11yProps(2)}
-          />
-          <Tab
-            style={{ fontWeight: "bold", color: "black" }}
-            label="App Admin"
-            {...a11yProps(3)}
-          />
-          <Tab
-            style={{ fontWeight: "bold", color: "black" }}
-            label="Release Management"
-            {...a11yProps(4)}
-          />
-        </Tabs>
-      </AppBar>
-      {/* Start of ApplicationMonitoring */}
-      <TabPanel className={classes.tabNames} value={value} index={0}>
-        <div>
-          <Card className={classes.root}>
-            <div className={classes.details}>
-              <CardContent className={classes.contentCard}>
-                <Typography variant="h5" color="textSecondary">
-                  Daily Application Monitoring Activity is Recorded Below. Last
-                  10 recent checks can be seen in the table
-                </Typography>
-              </CardContent>
-            </div>
-          </Card>
-          <div style={{ height: 400, width: "100%" }}>
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pageSize={5}
-              checkboxSelection
-            />
-          </div>
-        </div>
-      </TabPanel>
-      {/* END of ApplicationMonitoring */}
-
-      {/* START of TechSupport */}
-      <TabPanel className={classes.tabNames} value={value} index={1}>
-        <Card className={classes.root} variant="outlined">
-          <CardContent>
+    >
+      <div className={classes.root}>
+        <div className={classes.heroContent}>
+          <Container maxWidth="sm">
             <Typography
-              className={classes.title}
-              color="textPrimary"
-              variant="h5"
+              className={classes.contentHeader}
+              component="h1"
+              variant="h2"
+              align="center"
               gutterBottom
             >
-              Technical Support is available 24/7 through Phone and LiveChat
+              TECH
             </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              Contact by Phone:
+            <Typography
+              className={classes.content}
+              variant="h5"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Below are the links for Tech
             </Typography>
-            <Typography variant="body2" component="p">
-              1(800)-555-5555
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              Contact by LiveChat
-            </Typography>
-            <CardActions>
-              <Button size="small">CHAT NOW</Button>
-            </CardActions>
-          </CardContent>
-        </Card>
-      </TabPanel>
-      {/* END of TechSupport */}
+          </Container>
+        </div>
+        <AppBar style={{ background: "rgb(211, 168, 38)" }} position="static">
+          <Tabs
+            TabIndicatorProps={{ style: { backgroundColor: "black" } }}
+            centered
+            value={value}
+            onChange={handleChange}
+            aria-label="simple tabs example"
+            variant="fullWidth"
+          >
+            <Tab
+              style={{ fontWeight: "bold", color: "black" }}
+              textColor="primary"
+              label="Application Monitoring"
+              {...a11yProps(0)}
+            />
+            <Tab
+              style={{ fontWeight: "bold", color: "black" }}
+              label="Tech Support"
+              {...a11yProps(1)}
+            />
+            <Tab
+              style={{ fontWeight: "bold", color: "black" }}
+              label="App Development"
+              {...a11yProps(2)}
+            />
+            <Tab
+              style={{ fontWeight: "bold", color: "black" }}
+              label="App Admin"
+              {...a11yProps(3)}
+            />
+            <Tab
+              style={{ fontWeight: "bold", color: "black" }}
+              label="Release Management"
+              {...a11yProps(4)}
+            />
+          </Tabs>
+        </AppBar>
+        {/* Start of ApplicationMonitoring */}
+        <TabPanel className={classes.tabNames} value={value} index={0}>
+          <div>
+            <Card className={classes.root}>
+              <div className={classes.details}>
+                <CardContent className={classes.contentCard}>
+                  <Typography variant="h5" color="textSecondary">
+                    Daily Application Monitoring Activity is Recorded Below.
+                    Last 10 recent checks can be seen in the table
+                  </Typography>
+                </CardContent>
+              </div>
+            </Card>
+            <div style={{ height: 400, width: "100%" }}>
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={5}
+                checkboxSelection
+              />
+            </div>
+          </div>
+        </TabPanel>
+        {/* END of ApplicationMonitoring */}
 
-      <TabPanel className={classes.tabNames} value={value} index={2}>
-        <div>
-          <Typography className={classes.dev} variant="h4">
-            App Development
+        {/* START of TechSupport */}
+        <TabPanel className={classes.tabNames} value={value} index={1}>
+          <Card className={classes.root} variant="outlined">
+            <CardContent>
+              <Typography
+                className={classes.title}
+                color="textPrimary"
+                variant="h5"
+                gutterBottom
+              >
+                Technical Support is available 24/7 through Phone and LiveChat
+              </Typography>
+              <Typography className={classes.pos} color="textSecondary">
+                Contact by Phone:
+              </Typography>
+              <Typography variant="body2" component="p">
+                1(800)-555-5555
+              </Typography>
+              <Typography className={classes.pos} color="textSecondary">
+                Contact by LiveChat
+              </Typography>
+              <CardActions>
+                <Button size="small">CHAT NOW</Button>
+              </CardActions>
+            </CardContent>
+          </Card>
+        </TabPanel>
+        {/* END of TechSupport */}
+
+        <TabPanel className={classes.tabNames} value={value} index={2}>
+          <div>
+            <Typography className={classes.dev} variant="h4">
+              App Development
+            </Typography>
+          </div>
+          <div>
+            <Typography className={classes.dev} variant="h5">
+              Our development team is committed to providing the best user
+              experience
+            </Typography>
+          </div>
+          <img
+            className={classes.appDevPic}
+            alt=""
+            src={process.env.PUBLIC_URL + "/AppDev.png"}
+          />
+        </TabPanel>
+        <TabPanel className={classes.tabNames} value={value} index={3}>
+          <div>
+            <Typography className={classes.dev} variant="h4">
+              App Admin
+            </Typography>
+          </div>
+          <div>
+            <Typography className={classes.dev} variant="h5">
+              App admin manages all site traffic
+            </Typography>
+          </div>
+          <img
+            className={classes.appDevPic}
+            alt=""
+            src={process.env.PUBLIC_URL + "/admin.png"}
+          />
+        </TabPanel>
+        <TabPanel className={classes.tabNames} value={value} index={4}>
+          <div>
+            <Typography>Release Management Schedule</Typography>
+          </div>
+          <Calendar onChange={onChange} value={change} />
+        </TabPanel>
+        <footer className={classes.footer}>
+          <Typography variant="h6" align="center" gutterBottom>
+            AdminPortal
           </Typography>
-        </div>
-        <div>
-          <Typography className={classes.dev} variant="h5">
-            Our development team is committed to providing the best user experience
+          <Typography variant="subtitle1" align="center" component="p">
+            Made by Jerel Lopez, Seung Jung & Abdul Aamir
           </Typography>
-        </div>
-        <img className={classes.appDevPic}src={process.env.PUBLIC_URL + '/AppDev.png'} />
-      </TabPanel>
-      <TabPanel className={classes.tabNames} value={value} index={3}>
-      <div>
-          <Typography className={classes.dev} variant="h4">
-            App Admin
-          </Typography>
-        </div>
-        <div>
-          <Typography className={classes.dev} variant="h5">
-            App admin manages all site traffic
-          </Typography>
-        </div>
-        <img className={classes.appDevPic} src={process.env.PUBLIC_URL + '/admin.png'} />
-      </TabPanel>
-      <TabPanel className={classes.tabNames} value={value} index={4}>
-        <div>
-          <Typography>
-            Release Management Schedule
-          </Typography>
-        </div>
-        <Calendar onChange={onChange} value={change} />
-      </TabPanel>
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          AdminPortal
-        </Typography>
-        <Typography variant="subtitle1" align="center" component="p">
-          Made by Jerel Lopez, Seung Jung & Abdul Aamir
-        </Typography>
-        <Copyright />
-      </footer>
-    </div>
+          <Copyright />
+        </footer>
+      </div>
     </motion.div>
   );
 }
