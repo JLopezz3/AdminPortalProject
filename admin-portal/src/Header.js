@@ -59,29 +59,27 @@ const useStyles = makeStyles((theme) => ({
   },
   icons: {
     paddingBottom: "5px",
-  }
+  },
 }));
 
 export default function Header() {
   const history = useHistory();
   const classes = useStyles();
-  const [user, setUser] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [position, setPosition] = useState("");
 
-  useEffect(async () => {
+  useEffect(() => {
+    getUser();
+  });
+
+  const getUser = async () => {
     let uid = await localStorage.getItem("uid");
     if (uid !== null) {
-      setUser(true);
       db.collection("users")
         .where("uid", "==", uid)
         .get()
         .then((doc) => {
           doc.forEach((item) => {
             console.log(item.id);
-            setName(item.data().name);
-            setEmail(item.data().email);
             setPosition(item.data().user);
           });
         })
@@ -89,7 +87,7 @@ export default function Header() {
     } else {
       history.replace("/login");
     }
-  });
+  };
 
   return (
     <div className={classes.root}>
@@ -101,12 +99,12 @@ export default function Header() {
             </Link>
           </Typography>
           <Typography className={classes.greeting}>
-            You are logged in as: 
+            You are logged in as:
           </Typography>
           {position === "finance" && (
             <Link to="/finance" className={classes.links}>
               <Button size="small" color="inherit" className={classes.finance}>
-              <MonetizationOnIcon className={classes.icons} />
+                <MonetizationOnIcon className={classes.icons} />
                 Finance
               </Button>
             </Link>
@@ -114,7 +112,7 @@ export default function Header() {
           {position === "hr" && (
             <Link to="/hr" className={classes.links}>
               <Button size="small" color="inherit" className={classes.hr}>
-              <SupervisorAccountIcon className={classes.icons} />
+                <SupervisorAccountIcon className={classes.icons} />
                 HR
               </Button>
             </Link>
@@ -122,7 +120,7 @@ export default function Header() {
           {position === "sales" && (
             <Link to="/sales" className={classes.links}>
               <Button size="small" color="inherit" className={classes.sales}>
-              <ReceiptIcon className={classes.icons}/>
+                <ReceiptIcon className={classes.icons} />
                 Sales
               </Button>
             </Link>
@@ -130,7 +128,7 @@ export default function Header() {
           {position === "tech" && (
             <Link to="/tech" className={classes.links}>
               <Button size="small" color="inherit" className={classes.tech}>
-              <LaptopChromebookIcon className={classes.icons}/>
+                <LaptopChromebookIcon className={classes.icons} />
                 Tech
               </Button>
             </Link>
@@ -138,7 +136,7 @@ export default function Header() {
           {position === "support" && (
             <Link to="/support" className={classes.links}>
               <Button size="small" color="inherit" className={classes.support}>
-              <LiveHelpIcon className={classes.icons}/>
+                <LiveHelpIcon className={classes.icons} />
                 Support
               </Button>
             </Link>

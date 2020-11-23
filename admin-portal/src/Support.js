@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundPosition: "0px -250px",
+    backgroundPosition: "0px -190px",
     backgroundRepeat: "no-repeat",
     width: "100wh",
   },

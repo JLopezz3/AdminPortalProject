@@ -1,26 +1,26 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import PageScroll from "./PageScroll";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="#FFFFFF" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -37,17 +37,17 @@ const pageVariants = {
   out: {
     opacity: 1,
     width: "100%",
-  }
+  },
 };
 
 const pageTransition = {
   type: "tween",
   ease: "anticipate",
-  duration: 1.2
+  duration: 1.2,
 };
 
 const pageStyle = {
-  position: "absolute"
+  position: "absolute",
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -66,19 +66,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundPosition: '0px -450px',
-    backgroundRepeat: 'no-repeat',
-    width: '100wh',
+    backgroundPosition: "0px -520px",
+    backgroundRepeat: "no-repeat",
+    width: "100wh",
   },
-
-  saleHeader:{
-    color: 'rgb(211, 168, 38)',
+  saleHeader: {
+    color: "rgb(211, 168, 38)",
     fontWeight: "bold",
   },
-  saleContent:{
-    color: 'rgb(211, 168, 38)',
+  saleContent: {
+    color: "rgb(211, 168, 38)",
   },
-
   saleBody: {
     paddingTop: "25px",
   },
@@ -87,6 +85,16 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === "light"
         ? theme.palette.grey[200]
         : theme.palette.grey[700],
+  },
+  buttonLink: {
+    background: "rgb(176 113 41)",
+    opacity: "0.9",
+    color: "white",
+    "&:hover, &.Mui-focusVisible": {
+      transition: "0.3s",
+      color: "#FFFFFF",
+      backgroundColor: "#000000",
+    },
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -102,112 +110,141 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.9",
   },
   phantom: {
-    display: 'block',
-    width: '100%',
+    display: "block",
+    width: "100%",
   },
-
 }));
 
 const tiers = [
   {
-    title: 'Reports',
-    subheader: 'Most popular',
-    description: ['Sales Reports'],
-    buttonText: 'Reports Link',
-    buttonVariant: 'outlined',
+    title: "Reports",
+    subheader: "Most popular",
+    description: ["Sales Reports"],
+    buttonText: "Reports Link",
+    buttonVariant: "outlined",
   },
   {
-    title: 'Leads',
-    subheader: 'Most popular',
-    description: ['Sales Leads'],
-    buttonText: 'Leads Link',
-    buttonVariant: 'contained',
+    title: "Leads",
+    subheader: "Most popular",
+    description: ["Sales Leads"],
+    buttonText: "Leads Link",
+    buttonVariant: "contained",
   },
   {
-    title: 'Demo',
-    subheader: 'Most popular',
-    description: ['Sales Demo'],
-    buttonText: 'Demo Link',
-    buttonVariant: 'outlined',
+    title: "Demo",
+    subheader: "Most popular",
+    description: ["Sales Demo"],
+    buttonText: "Demo Link",
+    buttonVariant: "outlined",
   },
 ];
-
 
 export default function Sales() {
   const classes = useStyles();
 
   return (
-     <div>
-       <motion.div
-      style={pageStyle}
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+    <div>
+      <motion.div
+        style={pageStyle}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
       >
-       <div className={classes.salesBG}>
-        {/* Hero unit */}
-      <Container maxWidth="sm" >
-        <Typography className={classes.saleHeader} component="h1" variant="h2" align="center" gutterBottom>
-          SALES
-        </Typography>
-        <Typography className={classes.saleContent} variant="h5" align="center" color="textSecondary" component="p">
-        The reports, leads and demo for sales are attached below
-        </Typography>
-      </Container>
-      {/* End hero unit */}
-      </div>
-      <Container className={classes.saleBody} Container maxWidth = "xl"
-      component = "main" >
-        <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Demo' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center' }}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <ul>
-                    {tier.description.map((line) => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
-                        {line}
-                      </Typography>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+        <div className={classes.salesBG}>
+          {/* Hero unit */}
+          <Container maxWidth="sm">
+            <Typography
+              className={classes.saleHeader}
+              component="h1"
+              variant="h2"
+              align="center"
+              gutterBottom
+            >
+              SALES
+            </Typography>
+            <Typography
+              className={classes.saleContent}
+              variant="h5"
+              align="center"
+              color="textSecondary"
+              component="p"
+            >
+              The reports, leads and demo for sales are attached below
+            </Typography>
+          </Container>
+          {/* End hero unit */}
+        </div>
+        <Container
+          className={classes.saleBody}
+          Container
+          maxWidth="xl"
+          component="main"
+        >
+          <Grid container spacing={5} alignItems="flex-end">
+            {tiers.map((tier) => (
+              // Enterprise card is full width at sm breakpoint
+              <Grid
+                item
+                key={tier.title}
+                xs={12}
+                sm={tier.title === "Demo" ? 12 : 6}
+                md={4}
+              >
+                <Card>
+                  <CardHeader
+                    title={tier.title}
+                    subheader={tier.subheader}
+                    titleTypographyProps={{ align: "center" }}
+                    subheaderTypographyProps={{ align: "center" }}
+                    className={classes.cardHeader}
+                  />
+                  <CardContent>
+                    <ul>
+                      {tier.description.map((line) => (
+                        <Typography
+                          component="li"
+                          variant="subtitle1"
+                          align="center"
+                          key={line}
+                        >
+                          {line}
+                        </Typography>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      className={classes.buttonLink}
+                      fullWidth
+                      variant={tier.buttonVariant}
+                      color="primary"
+                    >
+                      {tier.buttonText}
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
 
-      <PageScroll showBelow={250} />
-      {/* Footer */}
-      <div className={classes.phantom}>
-        <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-            AdminPortal
-          </Typography>
-          <Typography variant="subtitle1" align="center" component="p">
-            Made by Jerel Lopez, Seung Jung, & Abdul Aamir
-          </Typography>
-          <Copyright />
-        </footer>
-      </div>
-
+        <PageScroll showBelow={250} />
+        {/* Footer */}
+        <div className={classes.phantom}>
+          <footer className={classes.footer}>
+            <Typography variant="h6" align="center" gutterBottom>
+              AdminPortal
+            </Typography>
+            <Typography variant="subtitle1" align="center" component="p">
+              Made by Jerel Lopez, Seung Jung, & Abdul Aamir
+            </Typography>
+            <Copyright />
+          </footer>
+        </div>
       </motion.div>
       {/* End footer */}
-     </div>
+    </div>
   );
-};
+}
