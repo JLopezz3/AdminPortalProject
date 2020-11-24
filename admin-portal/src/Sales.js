@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import PageScroll from "./PageScroll";
 import { motion } from "framer-motion";
 
 function Copyright() {
@@ -118,22 +117,19 @@ const useStyles = makeStyles((theme) => ({
 const tiers = [
   {
     title: "Reports",
-    subheader: "Most popular",
-    description: ["Sales Reports"],
+    description: ["Sales Reports generated for the 2020 season are now available. Click the link below to view"],
     buttonText: "Reports Link",
     buttonVariant: "outlined",
   },
   {
     title: "Leads",
-    subheader: "Most popular",
-    description: ["Sales Leads"],
+    description: ["Sales Leads generated for the 2020 season are now available. Click the link below to view"],
     buttonText: "Leads Link",
     buttonVariant: "contained",
   },
   {
     title: "Demo",
-    subheader: "Most popular",
-    description: ["Sales Demo"],
+    description: ["Sale Demos generated for the 2020 season are now available. Click the link below to view"],
     buttonText: "Demo Link",
     buttonVariant: "outlined",
   },
@@ -205,7 +201,7 @@ export default function Sales() {
                       {tier.description.map((line) => (
                         <Typography
                           component="li"
-                          variant="subtitle1"
+                          variant="h5"
                           align="center"
                           key={line}
                         >
@@ -230,7 +226,6 @@ export default function Sales() {
           </Grid>
         </Container>
 
-        <PageScroll showBelow={250} />
         {/* Footer */}
         <div className={classes.phantom}>
           <footer className={classes.footer}>

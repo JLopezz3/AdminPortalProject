@@ -72,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: 'rgb(176 113 41)'
         },
   },
-
   icon: {
     verticalAlign: "bottom",
     height: 20,
@@ -147,12 +146,11 @@ export default function Support() {
           </Typography>
           <Typography className={classes.content} variant="h5" align="center"  paragraph>
               For customer support admin pages
-              
           </Typography> 
           <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained">
+                  <Button className={classes.buttonColor} variant="contained">
                     Contact Us
                   </Button>
                 </Grid>
