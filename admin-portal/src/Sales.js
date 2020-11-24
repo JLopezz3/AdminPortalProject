@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
     backgroundSize: "cover",
-    backgroundPosition: "0px -520px",
+    backgroundPosition: "0px -570px",
     backgroundRepeat: "no-repeat",
     width: "100wh",
   },
@@ -117,19 +117,25 @@ const useStyles = makeStyles((theme) => ({
 const tiers = [
   {
     title: "Reports",
-    description: ["Sales Reports generated for the 2020 season are now available. Click the link below to view"],
+    description: [
+      "Sales Reports generated for the 2020 season are now available. Click the link below to view",
+    ],
     buttonText: "Reports Link",
     buttonVariant: "outlined",
   },
   {
     title: "Leads",
-    description: ["Sales Leads generated for the 2020 season are now available. Click the link below to view"],
+    description: [
+      "Sales Leads generated for the 2020 season are now available. Click the link below to view",
+    ],
     buttonText: "Leads Link",
     buttonVariant: "contained",
   },
   {
     title: "Demo",
-    description: ["Sale Demos generated for the 2020 season are now available. Click the link below to view"],
+    description: [
+      "Sale Demos generated for the 2020 season are now available. Click the link below to view",
+    ],
     buttonText: "Demo Link",
     buttonVariant: "outlined",
   },
@@ -201,7 +207,7 @@ export default function Sales() {
                       {tier.description.map((line) => (
                         <Typography
                           component="li"
-                          variant="h5"
+                          variant="subtitle1"
                           align="center"
                           key={line}
                         >
