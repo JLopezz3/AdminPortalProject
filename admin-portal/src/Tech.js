@@ -21,6 +21,9 @@ import "react-calendar/dist/Calendar.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { motion } from "framer-motion";
 
+import PhoneIcon from "@material-ui/icons/Phone";
+import ForumIcon from "@material-ui/icons/Forum";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="#FFFFFF" align="center">
@@ -230,6 +233,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     width: "100wh",
   },
+  buttonColor: {
+    background: "#000000",
+    opacity: "0.9",
+    color: "white",
+    "&:hover, &.Mui-focusVisible": {
+      transition: "0.3s",
+      color: "#FFFFFF",
+      backgroundColor: "rgb(176 113 41)",
+    },
+  },
+  phoneIcon: {
+    color: "#000000",
+  },
+  chatIcon: {
+    color: "#000000",
+  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
@@ -376,22 +395,32 @@ export default function Tech() {
               <Typography
                 className={classes.title}
                 color="textPrimary"
-                variant="h5"
+                variant="h4"
                 gutterBottom
               >
                 Technical Support is available 24/7 through Phone and LiveChat
               </Typography>
-              <Typography className={classes.pos} color="textSecondary">
-                Contact by Phone:
+              <Typography
+                variant="h6"
+                className={classes.phone}
+                color="textSecondary"
+              >
+                Contact by Phone: <PhoneIcon className={classes.phoneIcon} />
               </Typography>
-              <Typography variant="body2" component="p">
+              <Typography variant="body1" component="p">
                 1(800)-555-5555
               </Typography>
-              <Typography className={classes.pos} color="textSecondary">
-                Contact by LiveChat
+              <Typography
+                variant="h6"
+                className={classes.chat}
+                color="textSecondary"
+              >
+                Contact by LiveChat: <ForumIcon className={classes.chatIcon} />
               </Typography>
               <CardActions>
-                <Button size="small">CHAT NOW</Button>
+                <Button className={classes.buttonColor} size="medium">
+                  CHAT NOW
+                </Button>
               </CardActions>
             </CardContent>
           </Card>
