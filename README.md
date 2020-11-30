@@ -2,7 +2,7 @@
 
 ## AdminPortal App for COSC4351
 
-### Installation
+### Installation and Starting
 
 1. `git clone https://github.com/JLopezz3/AdminPortalProject`
 2. `cd admin-portal`
