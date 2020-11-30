@@ -106,11 +106,6 @@ export default function HomePage() {
               </Link>
             </div>
           )}
-          {/* <img
-            className="home__wallpaper"
-            src="https://source.unsplash.com/user/jlopezz3/likes/1600x900"
-            alt=""
-          /> */}
           <video className={classes.videoTwo} autoPlay loop muted>
             <source src={Videotwo} type="video/mp4" />
           </video>
