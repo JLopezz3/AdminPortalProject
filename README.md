@@ -26,5 +26,3 @@
 
 1. `git checkout {branch-name}`
 2. `git pull origin main`
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=JLopezz3&repo=AdminPortalProject)](https://github.com/anuraghazra/github-readme-stats)
